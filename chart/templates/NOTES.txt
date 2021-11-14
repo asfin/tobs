@@ -126,10 +126,10 @@ To get your password for superuser run:
     tobs {{- template "tobs.cliOptions" . }} timescaledb get-password -U <user>
 {{- else }}
     # superuser password
-    PGPASSWORD_POSTGRES=$(kubectl get secret --namespace {{ .Release.Namespace }} {{ template "timescaledb.fullname" $tsEnv }}-passwords -o jsonpath="{.data.postgres}" | base64 --decode)
+    
 
     # admin password
-    PGPASSWORD_ADMIN=$(kubectl get secret --namespace {{ .Release.Namespace }} {{ template "timescaledb.fullname" $tsEnv }}-passwords -o jsonpath="{.data.admin}" | base64 --decode)
+    
 {{- end }}
 
 To connect to your database, chose one of these options:
